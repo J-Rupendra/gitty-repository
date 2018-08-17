@@ -5,13 +5,7 @@
 import java.util.*;
 public class Main
 {
-    static int min(int a,int b)
-    {
-        if(a<b)
-        return a;
-        else
-        return b;
-    }
+    
     
 	public static void main(String[] args) {
 		int coins[]=new int[]{10,7,5,1};
