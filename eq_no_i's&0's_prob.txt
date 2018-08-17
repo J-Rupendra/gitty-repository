@@ -1,0 +1,83 @@
+import java.util.*;
+import java.lang.*;
+public class HelloWorld{
+
+     public static void main(String []args){
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt();
+        int a[]=new int[n],sum=0;
+        for(int i=0;i<n;i++)
+        {
+        a[i]=s.nextInt();
+        sum+=a[i];
+        }
+        int first=0,last=n-1;
+        if(n==1)
+        {
+            System.out.println("Sorry....");
+            System.exit(0);
+        }
+        while(first<last)
+        {
+            int ele=last-first+1;
+            
+            if(ele%2==1)
+            {
+                if(sum<=ele/2)
+                {
+                  int b=a[first]==0?a[first++]:a[last--];
+                  sum-=b;
+                }
+                else
+                {
+                    int b=a[first]==1?a[first++]:a[last--];
+                    sum-=b;
+                }
+            }
+            else
+            {
+                if(sum==ele/2)
+                   break;
+                   int key;
+                int first1=first,last1=last,sum1=sum,sum2=sum;
+                if(sum<ele/2)
+                {
+                    key=0;
+                }
+                else
+                {
+                   key=1;
+                }
+                 
+                    while((a[first1]!=key&&a[last1]!=key)&&first1!=last1)
+                    {
+                     sum1-=a[first1++];
+                     sum2-=a[last1--];
+                     
+                    }
+                    if(a[first1]==key)
+                    {
+                        sum=sum1-a[first1++];
+                        first=first1;
+                        
+                    }
+                    else if(a[last1]==key)
+                    {
+                        sum=sum2-a[last1--];
+                        last=last1;
+                    }
+                    else
+                    {
+                        System.out.println("sorry...");
+                        System.exit(0);
+                    } 
+            }
+            
+        }
+        if(first==last)
+        System.out.println("Sorry...");
+        else
+        for(int i=first;i<=last;i++)
+        System.out.print(a[i]+" ");
+     }
+}
