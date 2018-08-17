@@ -1,7 +1,3 @@
-//coin Change problem  {7,3,2,1}
-//given some denomination
-//find the minimum coins which can make the required sum (13  in our case..)
-
 public class Main
 {
 	public static void main(String[] args) {
