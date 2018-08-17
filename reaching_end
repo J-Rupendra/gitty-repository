@@ -1,0 +1,47 @@
+public class Main
+{
+	public static void main(String[] args) {
+		int a[]=new int[]{2,3,1,1,2,4,2,0,1,1};
+		int b[]=new int[a.length],c[]=new int[a.length];
+		int n=a.length;
+		for(int i=0;i<n;i++)
+		  c[i]=-1;
+		b[0]=c[0]=0;
+		for(int i=1;i<n;i++)
+		{
+		    for(int j=0;j<i;j++)
+		    {
+		        if(a[j]>=i-j)
+		        {
+		            if(b[i]==0)
+		            {
+		                b[i]=1+b[j];
+		                c[i]=j;
+		            }
+		            else
+		            {
+		               if(b[i]>1+b[j])
+		               {
+		                   b[i]=1+b[j];
+		                   c[i]=j;
+		               }
+		            }
+		        }
+		    }
+		}
+		System.out.println(b[n-1]);
+		int i=n-1;
+		System.out.print(a[n-1]+" ");
+		while(c[i]>0)
+		{
+		    System.out.print(a[c[i]]+" ");
+		    i=c[i];
+		  //  i++;
+		}
+		System.out.println(a[0]);
+        // for(int i1=0;i1<n;i1++)
+        // {
+        //   System.out.print(c[i1]+" ");
+        // }
+	}
+}
